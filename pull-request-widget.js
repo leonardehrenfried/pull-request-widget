@@ -1,6 +1,5 @@
 (function(){
   var addPullRequest = function(event){
-    console.log(event);
     var li = $("<li>");
     var a = $("<a>").attr("href", event.payload.pull_request.html_url);
     var text = "Pull request '" + event.payload.pull_request.title
@@ -15,20 +14,29 @@
       ul = $("<ul>").appendTo("#pull-requests");
     }
     return ul;
+  },
+  page = 1,
+  getPullRequests = function(url){
+    console.log("fetching from "+url)
+    $.getJSON(url, function(data) {
+      console.log(data);
+      if (data.data.length){
+        $.each(data.data, function(index, event) {
+          if(event.type === "PullRequestEvent"){
+            addPullRequest(event);
+          }
+        });
+        page++;
+        var next = url.replace(/page=(\d+)/g, "page="+ page);
+        console.log(next);
+        getPullRequests(next)
+      }
+    });
   };
 
   $("document").ready(function(){
     var user = "lenniboy"
-    var url = "https://api.github.com/users/" + user + "/events?callback=?";
-
-    $.getJSON(url, function(data) {
-      var ul = $("<ul>");
-      $.each(data.data, function(index, event) {
-        if(event.type === "PullRequestEvent"){
-          addPullRequest(event);
-        }
-      });
-
-    });
+    var url = "https://api.github.com/users/" + user + "/events?callback=?&page=1";
+    getPullRequests(url);
   });
 })();
