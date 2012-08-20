@@ -24,7 +24,6 @@
   getPullRequests = function(url){
     console.log("fetching from "+url)
     $.getJSON(url, function(data) {
-      console.log(data);
       if (data.data.length){
         $.each(data.data, function(index, event) {
           if(event.type === "PullRequestEvent"){
@@ -33,7 +32,6 @@
         });
         page++;
         var next = url.replace(/page=(\d+)/g, "page="+ page);
-        console.log(next);
         getPullRequests(next)
       }
     });
