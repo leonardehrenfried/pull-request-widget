@@ -1,4 +1,9 @@
 (function(){
+  if (!console){
+    console = {
+      log : function(){}
+    }
+  }
   var addPullRequest = function(event){
     var li = $("<li>");
     var a = $("<a>").attr("href", event.payload.pull_request.html_url);
