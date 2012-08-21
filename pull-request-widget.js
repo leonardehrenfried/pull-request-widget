@@ -8,11 +8,15 @@
   pullRequests = [],
   addPullRequest = function(event){
     var li = $("<li>");
-    var a = $("<a>").attr("href", event.payload.pull_request.html_url);
-    var text = "Pull request '" + event.payload.pull_request.title
-               + "' opened on " + event.repo.name;
-    a.text(text)
-    li.append(a);
+    $("<a>")
+        .attr("href", event.payload.pull_request.html_url)
+        .text("'" + event.payload.pull_request.title + "'")
+        .appendTo(li);
+    $("<span>").text(" opened on ").appendTo(li);
+    $("<a>")
+        .attr("href", "https://github.com/" + event.repo.name)
+        .text(event.repo.name).appendTo(li);
+
     getUl().append(li);
     pullRequests.push(event);
   },
