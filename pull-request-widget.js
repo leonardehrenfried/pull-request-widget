@@ -24,9 +24,10 @@
   getPullRequests = function(url){
     console.log("fetching from "+url)
     $.getJSON(url, function(data) {
-      if (data.data.length){
-        $.each(data.data, function(index, event) {
-          if(event.type === "PullRequestEvent"){
+      data = data.data
+      if (data.length){
+        $.each(data, function(index, event) {
+          if(event.type === "PullRequestEvent" && event.payload.action === "opened"){
             addPullRequest(event);
           }
         });
