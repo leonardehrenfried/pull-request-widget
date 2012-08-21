@@ -1,0 +1,7 @@
+ul.pull-requests{
+  margin: 0;
+}
+
+ul.pull-requests li{
+  list-style-type: none;
+}

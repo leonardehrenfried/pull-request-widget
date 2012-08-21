@@ -23,7 +23,7 @@
   ul,
   getUl = function(){
     if(!ul){
-      ul = $("<ul>").appendTo("#pull-requests");
+      ul = $("<ul>").addClass("pull-requests").appendTo("#pull-requests");
     }
     return ul;
   },
@@ -62,7 +62,7 @@
     if(localStorage && localStorage.getItem(cacheKey)){
       var cache = JSON.parse(localStorage.getItem(cacheKey));
       if(cache.expiry > Date.now()){
-        console.log("Fetching pull requests from cache");
+        console.log("Fetching pull requests from cache. Expiry: " + new Date(cache.expiry));
         return cache.events;
       }
     }
