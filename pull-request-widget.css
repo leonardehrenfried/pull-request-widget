@@ -1,7 +1,24 @@
 ul.pull-requests{
   margin: 0;
+  width: 400px;
+  margin: auto;
+  max-height: 500px;
+  overflow: auto;
+  border: 1px silver solid;
+  border-radius: 2px;
+  padding: 5px;
 }
 
 ul.pull-requests li{
   list-style-type: none;
+  border-bottom: 1px silver solid;
+  border-radius: 2px;
+  margin: 5px 0;
+  padding: 3px;
 }
+
+ul.pull-requests li h4{
+  font-size: 16px;
+  margin: 0 0 5px 0;
+}
+
