@@ -1,4 +1,4 @@
-(function(){
+(function($){
   if (!console){
     console = {
       log : function(){}
@@ -68,9 +68,9 @@
       }
     }
   };
-
-  $("document").ready(function(){
-    var user = "lenniboy"
+  $.fn.pullRequests = function() {
+    var user = this.data("github-user");
+    cacheKey += "-" + user;
     var url = "https://api.github.com/users/" + user + "/events?callback=?&page=1";
     var cache = getCache();
     if(cache){
@@ -81,5 +81,6 @@
     else{
       getPullRequests(url);
     }
-  });
-})();
+  };
+})(jQuery);
+
