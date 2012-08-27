@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -37,9 +37,25 @@
       </div>
     </div>
     <div class="container">
+      <div class="page-header">
+        <h1>Github Pull Request jQuery Plugin</h1>
+      </div>
       <div class="row">
-        <div class="span12">
-          <h1>My pull requests</h1>
+        <div class="span6">
+          <blockquote>
+            <p>
+            Github doesn't make it all that easy to get a list of your pull requests but you can get the information from their API in a slightly roundabout way. This plugin makes listing your pull requests easy.
+            </p>
+          </blockquote>
+          <h3>Usage</h3>
+          <ol>
+            <li>Add the plugin to your document</li>
+            <pre><head></pre></li>
+          </ol>
+          <h3>Caching</h3>
+          Since each browser has only 5000 API calls per day and this widget needs to make a lot of requests, the pull request data is cached in <code>localStorage</code> for 30 minutes.
+        </div>
+        <div class="span6">
           <div id="pull-requests" data-github-user="lenniboy"></div>
         </div>
       </div>
