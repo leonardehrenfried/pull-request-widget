@@ -18,7 +18,9 @@
         .attr("href", "https://github.com/" + event.repo.name)
         .text(event.repo.name).appendTo(li);
 
-    getUl().append(li);
+    var  ul = getUl();
+    ul.find("li.message").remove()
+    ul.append(li);
     pullRequests.push(event);
   },
   ul,
@@ -70,6 +72,9 @@
   };
   $.fn.pullRequests = function() {
     var user = this.data("github-user");
+    if(!user){
+      throw "Could not read Github username. Add the data-github-user attribute the element."
+    }
     cacheKey += "-" + user;
     var url = "https://api.github.com/users/" + user + "/events?callback=?&page=1";
     var cache = getCache();
@@ -79,6 +84,8 @@
       })
     }
     else{
+      var ul = getUl();
+      ul.append($("<li>").text("Fetching pull requests from the Github API...").addClass("message"));
       getPullRequests(url);
     }
   };
