@@ -49,8 +49,15 @@
           </blockquote>
           <h3>Usage</h3>
           <ol>
-            <li>Add the plugin to your document</li>
-            <pre><head></pre></li>
+            <li>Add the plugin to your document's head
+            <pre>&lt;script src=&quot;pull-request-widget.js&quot;&gt;&lt;/script&gt;</pre></li>
+            <li>Add an element with your username
+            <pre>&lt;div id=&quot;pull-requests&quot; data-github-user=&quot;lenniboy&quot;&gt;&lt;/div&gt;</pre></li>
+
+            <li>Instantiate the widget
+            <pre>$(document).ready(function(){
+  $(&quot;#pull-requests&quot;).pullRequests();
+});</pre></li>
           </ol>
           <h3>Caching</h3>
           Since each browser has only 5000 API calls per day and this widget needs to make a lot of requests, the pull request data is cached in <code>localStorage</code> for 30 minutes.
