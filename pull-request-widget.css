@@ -1,7 +1,6 @@
 ul.pull-requests{
   margin: 0;
   width: 400px;
-  margin: auto;
   max-height: 500px;
   overflow: auto;
   border: 1px silver solid;
