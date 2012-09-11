@@ -16,6 +16,10 @@ ul.pull-requests li{
   padding: 3px;
 }
 
+ul.pull-requests li:last-child{
+  border-bottom: none;
+}
+
 ul.pull-requests li h4{
   font-size: 16px;
   margin: 0 0 5px 0;
