@@ -1,3 +1,9 @@
+/*
+ * Github Pull Request Widget
+ * by Leonard Ehrenfried <leonard.ehrenfried@gmail.com>
+ * http://lenni.info/pull-request-widget/
+ */
+
 (function($){
   if (!console){
     console = {
