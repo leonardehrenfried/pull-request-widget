@@ -1,19 +1,56 @@
+div.pull-requests-header{
+  border-radius: 5px 5px 0 0;
+  background: #EFEFEF;
+  background: -moz-linear-gradient(#EFEFEF, #CACACA);
+  background: -webkit-linear-gradient(#EFEFEF, #CACACA);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#efefef', endColorstr='#cacaca')";
+  -moz-box-sizing: border-box;
+  height: 31px;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, Arial, freesans;
+  border: 1px solid #DDD;
+  position: relative;
+}
+
+div.pull-requests-header .tab{
+  font: 13px Helvetica, arial, freesans, clean, sans-serif;
+  display: inline-block;
+  padding: 0 8px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-color: #B4B4B4;
+  border-bottom: 1px solid white;
+  border: 1px solid #CCC;
+  border-bottom: 0;
+  border-radius: 3px 3px 0 0;
+  position: absolute;
+  bottom: 0px;
+  margin: 0 0 -2px 10px;
+}
+
 ul.pull-requests{
   margin: 0;
-  width: 400px;
   max-height: 500px;
   overflow: auto;
   border: 1px silver solid;
-  border-radius: 2px;
-  padding: 5px;
+  background: #fff;
 }
 
 ul.pull-requests li{
   list-style-type: none;
-  border-bottom: 1px silver solid;
-  border-radius: 2px;
-  margin: 5px 0;
-  padding: 3px;
+  padding: 10px;
+  border-bottom: 1px solid #EAEAEA;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, Arial, freesans;
+}
+
+ul.pull-requests li:hover{
+  background: #FFFFEF;
 }
 
 ul.pull-requests li:last-child{
@@ -21,7 +58,25 @@ ul.pull-requests li:last-child{
 }
 
 ul.pull-requests li h4{
-  font-size: 16px;
-  margin: 0 0 5px 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.3;
 }
 
+ul.pull-requests li h4 a{
+  font-family: "Helvetica Neue", Helvetica, Arial, freesans;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+ul.pull-requests li .meta {
+  display: inline-block;
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.55);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.07);
+  border-radius: 3px;
+}
+
+ul.pull-requests li .meta a{
+  color: #4183C4;
+}

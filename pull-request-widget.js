@@ -19,10 +19,11 @@
         .attr("href", event.payload.pull_request.html_url)
         .text(event.payload.pull_request.title)
     ).appendTo(li);
-    $("<span>").text(" opened on ").appendTo(li);
+    var meta = $("<div>").addClass("meta").appendTo(li);
+    $("<span>").text(" opened on ").appendTo(meta);
     $("<a>")
         .attr("href", "https://github.com/" + event.repo.name)
-        .text(event.repo.name).appendTo(li);
+        .text(event.repo.name).appendTo(meta);
 
     var  ul = getUl();
     ul.find("li.message").remove()
@@ -84,6 +85,9 @@
     cacheKey += "-" + user;
     var url = "https://api.github.com/users/" + user + "/events?callback=?&page=1";
     var cache = getCache();
+    var header = $("<div>").addClass("pull-requests-header");
+    header.append($("<div>").addClass("tab").text(user + "'s pull requests"));
+    this.append(header)
     if(cache){
       $.each(cache, function(index, event){
         addPullRequest(event);
