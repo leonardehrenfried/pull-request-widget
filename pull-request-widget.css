@@ -63,6 +63,10 @@ ul.pull-requests li h4{
   line-height: 1.3;
 }
 
+ul.pull-requests li .body{
+  font-size: 12px;
+}
+
 ul.pull-requests li h4 a{
   font-family: "Helvetica Neue", Helvetica, Arial, freesans;
   margin: 0 0 5px 0;
@@ -75,6 +79,7 @@ ul.pull-requests li .meta {
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
   background: rgba(0, 0, 0, 0.07);
   border-radius: 3px;
+  padding: 0 5px;
 }
 
 ul.pull-requests li .meta a{

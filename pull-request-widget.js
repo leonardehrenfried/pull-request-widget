@@ -19,6 +19,15 @@
         .attr("href", event.payload.pull_request.html_url)
         .text(event.payload.pull_request.title)
     ).appendTo(li);
+
+    //body text
+    var text = event.payload.pull_request.body, MAX = 40;
+    if (text.length > MAX){
+      text = text.substring(0, MAX) + "...";
+    }
+    $("<div>").addClass("body").text(text).appendTo(li);
+
+    //meta information
     var meta = $("<div>").addClass("meta").appendTo(li);
     $("<span>").text(" opened on ").appendTo(meta);
     $("<a>")
