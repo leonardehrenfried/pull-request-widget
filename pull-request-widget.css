@@ -67,6 +67,9 @@ ul.pull-requests li h4{
 
 ul.pull-requests li .body{
   font-size: 12px;
+  text-overflow: ellipsis;
+  overflow:hidden;
+  white-space:nowrap;
 }
 
 ul.pull-requests li h4 a{
