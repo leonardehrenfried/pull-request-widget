@@ -25,8 +25,11 @@
     $("<div>").addClass("body").text(text).appendTo(li);
 
     //meta information
-    var meta = $("<div>").addClass("meta").appendTo(li);
-    $("<span>").text(" opened on ").appendTo(meta);
+    var meta = $("<div>").addClass("meta").appendTo(li),
+    username = event.actor.login;
+    $("<img>").attr("src", event.actor.avatar_url).appendTo(meta);
+    $("<a>").text(username).attr("href", "https://github.com/" + username).appendTo(meta);
+    $("<span>").text(" submitted to ").appendTo(meta);
     $("<a>")
         .attr("href", "https://github.com/" + event.repo.name)
         .text(event.repo.name).appendTo(meta);
