@@ -1,4 +1,4 @@
-A small website widget which lists all your pull requests. More information availbale at http://lenni.info/pull-request-widget/.
+A small website widget which lists all your pull requests. More information available at http://lenni.info/pull-request-widget/.
 
 ##License
 ###The MIT License (MIT)

@@ -25,7 +25,7 @@
     $("<div>").addClass("body").text(text).appendTo(li);
 
     //meta information
-    var meta = $("<div>").addClass("meta").appendTo(li),
+    var meta = $("<div>").addClass("meta-info").appendTo(li),
     username = event.actor.login;
     $("<img>").attr("src", event.actor.avatar_url).appendTo(meta);
     $("<a>").text(username).attr("href", "https://github.com/" + username).appendTo(meta);
