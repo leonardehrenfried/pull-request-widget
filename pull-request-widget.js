@@ -12,6 +12,10 @@
   }
   var
   pullRequests = [],
+
+  /*
+   * Adds a pull request to the widget's body
+   */
   addPullRequest = function(event){
     var li = $("<li>");
     $("<h4>").append(
@@ -40,6 +44,9 @@
     pullRequests.push(event);
   },
   ul,
+  /*
+   * Gets the list element into which the PRs should be inserted
+   */
   getUl = function(){
     if(!ul){
       ul = $("<ul>").addClass("pull-requests").appendTo("#pull-requests");
@@ -47,6 +54,10 @@
     return ul;
   },
   page = 1,
+
+  /*
+   * Recursive function that calls itself until all PRs are fetched
+   */
   getPullRequests = function(url){
     console.log("fetching from "+url)
     $.getJSON(url, function(data) {
@@ -69,7 +80,7 @@
   cacheKey = "pull-requests",
   cachePullRequests = function(events){
     if(localStorage){
-      var in30Mins = Date.now() + 30 * 60 * 1000;
+      var in30Mins = Date.now() + 60 * 60 * 1000;
       console.log("Caching pull request. Expiry: " + new Date(in30Mins))
       localStorage.setItem(cacheKey, JSON.stringify({
         events: events,

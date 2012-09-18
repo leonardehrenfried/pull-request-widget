@@ -90,21 +90,24 @@ ul.pull-requests li .meta-info {
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
   background: rgba(0, 0, 0, 0.07);
   border-radius: 3px;
-  padding: 1px 5px 2px 5px;
+  padding: 1px 5px 2px 24px;
   width: auto;
   margin-top: 4px;
+  height: 20px;
+  position: relative;
 }
 
 ul.pull-requests li .meta-info img{
   width: 12px;
   height: 12px;
-  display: inline-block;
-  vertical-align: middle;
   padding: 1px;
   font-size: 1px;
   background: white;
   border: 1px solid #CCC;
   margin-right: 2px;
+  position: absolute;
+  top: 4px;
+  left: 5px;
 }
 
 ul.pull-requests li .meta-info a{
