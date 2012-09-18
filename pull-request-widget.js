@@ -114,8 +114,25 @@
       })
     }
     else{
-      var ul = getUl();
-      ul.append($("<li>").text("Fetching pull requests from the Github API...").addClass("message"));
+      var ul = getUl(),
+          dots = 1,
+          li = $("<li>").text("Fetching pull requests from the Github API").addClass("message");
+
+      ul.append(li);
+
+      //progress indicator (...)
+      var interval = setInterval(function() {
+        if(dots === 5){
+          dots = 0;
+        }
+        text = li.text().replace(/\./g,'');
+        for(var i = 0; i < dots && i < 5; i++){
+          text += ".";
+        }
+        li.text(text);
+        dots++;
+      }, 300);
+
       getPullRequests(url);
     }
   };
